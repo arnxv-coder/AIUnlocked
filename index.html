@@ -293,14 +293,40 @@ select.finp{cursor:pointer;appearance:none;}
 .reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease;}
 .reveal.vis{opacity:1;transform:translateY(0);}
 
+/* HAMBURGER */
+.hamburger{display:none;flex-direction:column;gap:5px;background:none;border:none;cursor:pointer;padding:5px;}
+.hamburger span{display:block;width:21px;height:2px;background:var(--white);border-radius:1px;transition:all .22s;}
+.hamburger.open span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+.hamburger.open span:nth-child(2){opacity:0;}
+.hamburger.open span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+.mob-menu{display:none;position:fixed;top:58px;left:0;right:0;background:#0a0a0a;border-bottom:1px solid var(--border);z-index:199;flex-direction:column;}
+.mob-menu.open{display:flex;}
+.mob-menu button{width:100%;text-align:left;padding:15px 22px;font-size:14px;color:var(--light);background:none;border:none;border-bottom:1px solid var(--border);cursor:pointer;transition:color .15s;}
+.mob-menu button:last-child{color:var(--gold);font-family:'Syne',sans-serif;font-weight:700;border-bottom:none;}
+.mob-menu button:hover{color:var(--gold);}
+
 /* RESPONSIVE */
-@media(max-width:860px){
+@media(max-width:768px){
+  /* nav */
   nav{padding:0 18px;}
   .nav-links{display:none;}
-  .hero{grid-template-columns:1fr;padding:86px 18px 48px;}
+  .nav-cta{display:none;}
+  .hamburger{display:flex;}
+  /* hero */
+  .hero{grid-template-columns:1fr;padding:80px 18px 48px;min-height:auto;}
   .hero-right{display:none;}
-  .sec,.curr,.inst-sec{padding:56px 18px;}
+  .hero-sub{max-width:100%;}
+  .hero-actions{flex-direction:column;align-items:stretch;}
+  .hero-actions .btn{width:100%;text-align:center;}
+  .hero-actions .link-btn{text-align:center;padding:10px 0;}
+  .hero-stats{gap:20px;flex-wrap:wrap;}
+  /* sections */
+  .sec{padding:52px 18px;}
+  .sec-alt{padding:52px 18px;}
+  .curr{padding:52px 18px;}
+  .inst-sec{padding:52px 18px;}
   .sec-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  /* grids */
   .cg{grid-template-columns:1fr;}
   .learn-grid{grid-template-columns:1fr;}
   .terminal{display:none;}
@@ -308,17 +334,23 @@ select.finp{cursor:pointer;appearance:none;}
   .about-grid{grid-template-columns:1fr;}
   .about-vis{display:none;}
   .tg{grid-template-columns:1fr;}
+  .faq-wrap{max-width:100%;}
+  /* cta */
+  .email-row{flex-direction:column;}
+  .email-inp{border-right:1px solid var(--border);border-bottom:none;}
+  /* footer */
   footer{flex-direction:column;gap:14px;padding:20px 18px;text-align:center;}
   .f-links{display:none;}
-  .email-row{flex-direction:column;}
-  .email-inp{border-right:1px solid var(--border);}
-  .course-hero{padding:86px 18px 48px;}
+  /* course page */
+  .course-hero{padding:80px 18px 44px;}
   .course-hero-grid{grid-template-columns:1fr;}
-  .purch-card{position:static;}
+  .purch-card{position:static;margin-top:24px;}
   .curr-grid{grid-template-columns:1fr;}
-  .inst-card{flex-direction:column;}
-  .contact-hero{padding:86px 18px 48px;}
-  .contact-grid{grid-template-columns:1fr;}
+  .inst-card{flex-direction:column;gap:16px;}
+  .course-title{font-size:clamp(24px,8vw,36px);}
+  /* contact page */
+  .contact-hero{padding:80px 18px 44px;}
+  .contact-grid{grid-template-columns:1fr;gap:36px;margin-top:32px;}
   .form-card{padding:20px;}
   .f-row{grid-template-columns:1fr;}
 }
@@ -335,7 +367,17 @@ select.finp{cursor:pointer;appearance:none;}
     <li><button onclick="showPage('contact')">Contact</button></li>
   </ul>
   <button class="nav-cta" onclick="showPage('contact')">Get in Touch</button>
+  <button class="hamburger" id="hamburger" onclick="toggleMobNav()">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+<div class="mob-menu" id="mob-menu">
+  <button onclick="goHome('#courses');closeMobNav()">Courses</button>
+  <button onclick="goHome('#pricing');closeMobNav()">Pricing</button>
+  <button onclick="goHome('#about');closeMobNav()">About</button>
+  <button onclick="showPage('contact');closeMobNav()">Contact</button>
+  <button onclick="showPage('contact');closeMobNav()">Get in Touch →</button>
+</div>
 
 <!-- ═══════════ HOME ═══════════ -->
 <div id="page-home" class="page active">
@@ -635,6 +677,7 @@ function showPage(name){
   document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
   document.getElementById('page-'+name).classList.add('active');
   window.scrollTo(0,0);
+  closeMobNav();
   setTimeout(observeReveals,50);
 }
 
@@ -792,6 +835,16 @@ async function submitForm(){
     btn.style.opacity='1';
     alert('Network error. Check your connection and try again.');
   }
+}
+
+// ── MOBILE NAV ──
+function toggleMobNav(){
+  document.getElementById('hamburger').classList.toggle('open');
+  document.getElementById('mob-menu').classList.toggle('open');
+}
+function closeMobNav(){
+  document.getElementById('hamburger').classList.remove('open');
+  document.getElementById('mob-menu').classList.remove('open');
 }
 
 // ── SCROLL REVEAL ──
