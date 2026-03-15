@@ -48,7 +48,7 @@ em{font-family:'Instrument Serif',serif;font-style:italic;font-weight:400;color:
 .link-btn:hover{color:var(--white);border-color:var(--white);}
 
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:58px;background:#0d0d0f;border-bottom:1px solid var(--border);}
+nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:center;justify-content:space-between;padding:0 40px;height:58px;background:rgba(9,9,11,.93);backdrop-filter:blur(18px);border-bottom:1px solid var(--border);}
 .nav-logo{font-family:'Syne',sans-serif;font-weight:800;font-size:16px;color:var(--white);cursor:pointer;background:none;border:none;}
 .nav-logo span{color:var(--gold);}
 .nav-links{display:flex;gap:26px;list-style:none;}
@@ -62,16 +62,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:200;display:flex;align-items:cen
 .hero-bg{position:absolute;inset:0;background:radial-gradient(ellipse 55% 55% at 68% 50%,rgba(240,192,64,.06) 0%,transparent 70%);pointer-events:none;}
 .hero-grid{position:absolute;inset:0;background-image:linear-gradient(rgba(255,255,255,.017) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.017) 1px,transparent 1px);background-size:54px 54px;pointer-events:none;}
 .hero-left{position:relative;z-index:2;}
-.hero-pretag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;}
+.hero-pretag{display:inline-flex;align-items:center;gap:8px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold);margin-bottom:26px;animation:su .6s .1s both;}
 .hero-pretag::before{content:'';width:20px;height:1px;background:var(--gold);}
-.hero-title{}
-.hero-sub{color:var(--dim);font-size:13px;line-height:1.9;max-width:390px;margin-bottom:34px;}
-.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;}
-.hero-stats{display:flex;gap:34px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);}
+.hero-title{animation:su .6s .25s both;}
+.hero-sub{color:var(--dim);font-size:13px;line-height:1.9;max-width:390px;margin-bottom:34px;animation:su .6s .4s both;}
+.hero-actions{display:flex;gap:14px;align-items:center;flex-wrap:wrap;animation:su .6s .5s both;}
+.hero-stats{display:flex;gap:34px;margin-top:48px;padding-top:32px;border-top:1px solid var(--border);animation:su .6s .65s both;}
 .sn{font-family:'Syne',sans-serif;font-weight:800;font-size:24px;color:var(--white);letter-spacing:-1px;}
 .sn span{color:var(--gold);}
 .sl{font-size:10px;text-transform:uppercase;letter-spacing:.1em;color:var(--muted);margin-top:1px;}
-.hero-right{position:relative;z-index:2;}
+.hero-right{position:relative;z-index:2;animation:fadeIn .9s .7s both;}
 .card-stack{position:relative;height:380px;}
 .hcard{position:absolute;width:280px;background:var(--card);border:1px solid var(--border);padding:20px;transition:transform .25s;}
 .hcard:nth-child(1){top:0;left:28px;transform:rotate(3.5deg);}
@@ -257,4 +257,558 @@ footer{border-top:1px solid var(--border);padding:26px 40px;display:flex;justify
 /* ── CONTACT PAGE ── */
 .contact-hero{padding:90px 40px 56px;}
 .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:72px;margin-top:48px;}
-.contact-methods{display:flex;flex-direction:column;gap:
+.contact-methods{display:flex;flex-direction:column;gap:28px;}
+.cm{display:flex;gap:14px;align-items:flex-start;}
+.cm-icon{width:40px;height:40px;background:var(--card);border:1px solid var(--border);display:flex;align-items:center;justify-content:center;font-size:17px;flex-shrink:0;}
+.cm-lbl{font-family:'Syne',sans-serif;font-weight:700;font-size:13px;color:var(--white);margin-bottom:2px;}
+.cm-val{font-size:12px;color:var(--dim);}
+.rt-card{background:var(--card);border:1px solid var(--border);padding:22px;margin-top:28px;}
+.rt-title{font-family:'Syne',sans-serif;font-weight:700;font-size:12px;color:var(--white);margin-bottom:14px;text-transform:uppercase;letter-spacing:.05em;}
+.rt-item{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:1px solid var(--border);font-size:11px;color:var(--dim);}
+.rt-item:last-child{border-bottom:none;}
+.rt-val{color:var(--teal);font-family:'Syne',sans-serif;font-weight:600;font-size:11px;}
+/* form */
+.form-card{background:var(--card);border:1px solid var(--border);padding:32px;}
+.form-title{font-family:'Syne',sans-serif;font-weight:700;font-size:19px;color:var(--white);margin-bottom:5px;letter-spacing:-.5px;}
+.form-sub{font-size:12px;color:var(--dim);margin-bottom:26px;}
+.fg{margin-bottom:18px;}
+.flbl{font-size:11px;text-transform:uppercase;letter-spacing:.09em;color:var(--muted);display:block;margin-bottom:7px;}
+.finp{width:100%;background:var(--bg);border:1px solid var(--border);color:var(--white);font-family:'DM Mono',monospace;font-size:13px;padding:12px 15px;outline:none;transition:border-color .16s;}
+.finp:focus{border-color:var(--gold);}
+.finp::placeholder{color:var(--muted);}
+textarea.finp{resize:vertical;min-height:100px;}
+select.finp{cursor:pointer;appearance:none;}
+.f-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+.f-submit{width:100%;padding:14px;background:var(--gold);border:none;color:#000;font-family:'Syne',sans-serif;font-weight:700;font-size:12px;text-transform:uppercase;letter-spacing:.06em;cursor:pointer;transition:background .16s;margin-top:6px;}
+.f-submit:hover{background:var(--white);}
+.f-success{display:none;text-align:center;padding:28px;background:rgba(45,212,191,.05);border:1px solid var(--teal);margin-top:16px;}
+.fs-icon{font-size:32px;margin-bottom:10px;}
+.fs-title{font-family:'Syne',sans-serif;font-weight:700;font-size:17px;color:var(--teal);margin-bottom:6px;}
+.fs-text{font-size:12px;color:var(--dim);}
+
+/* ANIMATIONS */
+@keyframes su{from{opacity:0;transform:translateY(20px);}to{opacity:1;transform:translateY(0);}}
+@keyframes marquee{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+@keyframes spin{from{transform:rotate(0deg);}to{transform:rotate(360deg);}}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .5s ease,transform .5s ease;}
+.reveal.vis{opacity:1;transform:translateY(0);}
+
+/* RESPONSIVE */
+@media(max-width:860px){
+  nav{padding:0 18px;}
+  .nav-links{display:none;}
+  .hero{grid-template-columns:1fr;padding:86px 18px 48px;}
+  .hero-right{display:none;}
+  .sec,.curr,.inst-sec{padding:56px 18px;}
+  .sec-head{flex-direction:column;align-items:flex-start;gap:12px;}
+  .cg{grid-template-columns:1fr;}
+  .learn-grid{grid-template-columns:1fr;}
+  .terminal{display:none;}
+  .pg{grid-template-columns:1fr;}
+  .about-grid{grid-template-columns:1fr;}
+  .about-vis{display:none;}
+  .tg{grid-template-columns:1fr;}
+  footer{flex-direction:column;gap:14px;padding:20px 18px;text-align:center;}
+  .f-links{display:none;}
+  .email-row{flex-direction:column;}
+  .email-inp{border-right:1px solid var(--border);}
+  .course-hero{padding:86px 18px 48px;}
+  .course-hero-grid{grid-template-columns:1fr;}
+  .purch-card{position:static;}
+  .curr-grid{grid-template-columns:1fr;}
+  .inst-card{flex-direction:column;}
+  .contact-hero{padding:86px 18px 48px;}
+  .contact-grid{grid-template-columns:1fr;}
+  .form-card{padding:20px;}
+  .f-row{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<nav>
+  <button class="nav-logo" onclick="showPage('home')">AI<span>Unlocked</span></button>
+  <ul class="nav-links">
+    <li><button onclick="goHome('#courses')">Courses</button></li>
+    <li><button onclick="goHome('#pricing')">Pricing</button></li>
+    <li><button onclick="goHome('#about')">About</button></li>
+    <li><button onclick="showPage('contact')">Contact</button></li>
+  </ul>
+  <button class="nav-cta" onclick="showPage('contact')">Get in Touch</button>
+</nav>
+
+<!-- ═══════════ HOME ═══════════ -->
+<div id="page-home" class="page active">
+  <div class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+    <div class="hero-left">
+      <div class="hero-pretag">AI Education for Real People</div>
+      <h1 class="h1 hero-title">Stop being<br/><em>confused</em><br/>by AI.</h1>
+      <p class="hero-sub">Practical courses that teach you how to actually use ChatGPT, Claude, Gemini and more — no fluff, no jargon, just real results.</p>
+      <div class="hero-actions">
+        <button class="btn btn-gold" onclick="jump('#courses')">Browse Courses</button>
+        <button class="link-btn" onclick="jump('#about')">Who teaches this?</button>
+      </div>
+      <div class="hero-stats">
+        <div><div class="sn">12<span>+</span></div><div class="sl">Lessons</div></div>
+        <div><div class="sn">4.9<span>★</span></div><div class="sl">Rating</div></div>
+        <div><div class="sn">₹99<span>+</span></div><div class="sl">Starting from</div></div>
+      </div>
+    </div>
+    <div class="hero-right">
+      <div class="card-stack">
+        <div class="hcard"><div class="hcard-chip">Beginner</div><div class="hcard-name">ChatGPT for Students</div><div class="hcard-bar"><div class="hcard-fill" style="width:78%"></div></div><div class="hcard-meta"><span>78% done</span><span>24 lessons</span></div></div>
+        <div class="hcard"><div class="hcard-chip">Intermediate</div><div class="hcard-name">Prompt Engineering 101</div><div class="hcard-bar"><div class="hcard-fill" style="width:45%"></div></div><div class="hcard-meta"><span>45% done</span><span>18 lessons</span></div></div>
+        <div class="hcard"><div class="hcard-chip">Advanced</div><div class="hcard-name">AI Tools for Business</div><div class="hcard-bar"><div class="hcard-fill" style="width:10%"></div></div><div class="hcard-meta"><span>Just started</span><span>32 lessons</span></div></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="marquee-wrap">
+    <div class="marquee-inner">
+      <div class="m-item"><span class="m-dot"></span>ChatGPT</div><div class="m-item"><span class="m-dot"></span>Claude</div><div class="m-item"><span class="m-dot"></span>Gemini</div><div class="m-item"><span class="m-dot"></span>Prompt Engineering</div><div class="m-item"><span class="m-dot"></span>Image Generation</div><div class="m-item"><span class="m-dot"></span>AI for Students</div><div class="m-item"><span class="m-dot"></span>Perplexity</div><div class="m-item"><span class="m-dot"></span>Midjourney</div><div class="m-item"><span class="m-dot"></span>Automation</div><div class="m-item"><span class="m-dot"></span>AI Writing</div>
+      <div class="m-item"><span class="m-dot"></span>ChatGPT</div><div class="m-item"><span class="m-dot"></span>Claude</div><div class="m-item"><span class="m-dot"></span>Gemini</div><div class="m-item"><span class="m-dot"></span>Prompt Engineering</div><div class="m-item"><span class="m-dot"></span>Image Generation</div><div class="m-item"><span class="m-dot"></span>AI for Students</div><div class="m-item"><span class="m-dot"></span>Perplexity</div><div class="m-item"><span class="m-dot"></span>Midjourney</div><div class="m-item"><span class="m-dot"></span>Automation</div><div class="m-item"><span class="m-dot"></span>AI Writing</div>
+    </div>
+  </div>
+
+  <div class="sec" id="courses">
+    <div class="sec-head reveal">
+      <div><div class="tag">What I Teach</div><h2 class="h2">Pick your <em>level.</em></h2></div>
+      <button class="link-btn" onclick="jump('#pricing')">See pricing →</button>
+    </div>
+    <div class="cg">
+      <div class="cc reveal" onclick="showCourse('chatgpt')"><div class="cc-num">01</div><span class="cc-icon">🚀</span><div class="cc-title">ChatGPT for Complete Beginners</div><div class="cc-desc">From zero to actually useful. Learn what AI is, how to talk to it, and get it working for you. Perfect for students and parents.</div><div class="cc-foot"><div class="cc-price">₹199<small>One-time</small></div><span class="badge badge-hot">Bestseller</span></div></div>
+      <div class="cc reveal" onclick="showCourse('prompts')"><div class="cc-num">02</div><span class="cc-icon">⚡</span><div class="cc-title">Prompt Engineering That Works</div><div class="cc-desc">Stop getting bad answers. Learn exactly how to write prompts that get AI to produce what you need, every single time.</div><div class="cc-foot"><div class="cc-price">₹349<small>One-time</small></div><span class="badge">Intermediate</span></div></div>
+      <div class="cc reveal" onclick="showCourse('images')"><div class="cc-num">03</div><span class="cc-icon">🖼️</span><div class="cc-title">AI Image Generation Masterclass</div><div class="cc-desc">Create stunning images with Midjourney, DALL-E, and more. No design skills needed. Great for content creators.</div><div class="cc-foot"><div class="cc-price">₹299<small>One-time</small></div><span class="badge">Creative</span></div></div>
+      <div class="cc reveal" onclick="showCourse('business')"><div class="cc-num">04</div><span class="cc-icon">💼</span><div class="cc-title">AI Tools for Small Business</div><div class="cc-desc">Save 5+ hours a week using AI to write emails, create marketing content, analyse data, and automate boring tasks.</div><div class="cc-foot"><div class="cc-price">₹499<small>One-time</small></div><span class="badge">Business</span></div></div>
+      <div class="cc reveal" onclick="showCourse('study')"><div class="cc-num">05</div><span class="cc-icon">🎓</span><div class="cc-title">AI Study Toolkit for Students</div><div class="cc-desc">Use AI ethically to learn faster — summarise textbooks, explain hard concepts, quiz yourself, plan your studies.</div><div class="cc-foot"><div class="cc-price">₹249<small>One-time</small></div><span class="badge badge-hot">Popular</span></div></div>
+      <div class="cc reveal" onclick="showPage('contact')"><div class="cc-num">06</div><span class="cc-icon">🤝</span><div class="cc-title">1-on-1 Live Session with Me</div><div class="cc-desc">Private Google Meet session. Bring any AI question. I'll teach you exactly what you need, tailored to your situation.</div><div class="cc-foot"><div class="cc-price">₹600<small>Per hour</small></div><span class="badge">Personal</span></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt">
+    <div class="learn-grid">
+      <div>
+        <div class="tag reveal">Why It Works</div>
+        <h2 class="h2 reveal">Practical skills,<br/><em>zero fluff.</em></h2>
+        <p class="sub reveal">Most AI courses are made by people who've never used it in real life. I use these tools every single day.</p>
+        <div class="li-list">
+          <div class="li reveal"><div class="li-n">01</div><div class="li-t"><strong>Real examples, not theory</strong><p>Every lesson uses actual prompts and real outputs — you see exactly what works.</p></div></div>
+          <div class="li reveal"><div class="li-n">02</div><div class="li-t"><strong>Short, focused lessons</strong><p>No 3-hour lectures. Each video is under 10 minutes and teaches one specific skill.</p></div></div>
+          <div class="li reveal"><div class="li-n">03</div><div class="li-t"><strong>Always up to date</strong><p>AI changes fast. Courses are updated regularly so you're never learning outdated tricks.</p></div></div>
+          <div class="li reveal"><div class="li-n">04</div><div class="li-t"><strong>30-day Q&amp;A support</strong><p>Every purchase includes follow-up questions over WhatsApp for a full month.</p></div></div>
+        </div>
+      </div>
+      <div class="terminal reveal">
+        <div class="t-bar"><div class="t-dot t-r"></div><div class="t-dot t-y"></div><div class="t-dot t-g"></div></div>
+        <div><span class="t-p">you@ai-unlocked</span> <span class="t-c">~ $</span></div><br/>
+        <div class="t-o">❌ Bad prompt:</div>
+        <div class="t-o" style="color:#888">"Summarise this chapter for me"</div>
+        <div style="color:#ef4444;font-size:11px;">→ Generic, useless output</div><br/>
+        <div class="t-o">✅ Good prompt:</div>
+        <div class="t-o">"You are a CBSE Class 8 teacher.</div>
+        <div class="t-o">&nbsp;Summarise this chapter in 5 points</div>
+        <div class="t-o">&nbsp;for a student who struggles with</div>
+        <div class="t-o">&nbsp;science. Use simple words."</div><br/>
+        <div><span class="t-h">→ Perfect result every time.</span></div><br/>
+        <div class="t-o">That's what you learn here.</div><br/>
+        <div><span class="t-p">$</span>&nbsp;<span class="t-cur"></span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec" id="pricing">
+    <div class="reveal"><div class="tag">Simple Pricing</div><h2 class="h2">Pay once,<br/><em>learn forever.</em></h2></div>
+    <div class="pg">
+      <div class="pc reveal">
+        <div class="plbl">Starter</div>
+        <div class="ppr"><small>₹</small>199</div><div class="pper">one course, yours forever</div>
+        <div class="pdiv"></div>
+        <div class="pf">1 course of your choice</div><div class="pf">Video lessons (self-paced)</div><div class="pf">PDF cheat sheets included</div><div class="pf">14-day WhatsApp Q&amp;A</div>
+        <button class="pbtn" onclick="jump('#courses')">Choose a Course</button>
+      </div>
+      <div class="pc featured reveal">
+        <div class="plbl">Bundle — Best Value</div>
+        <div class="ppr"><small>₹</small>799</div><div class="pper">all courses + bonus content</div>
+        <div class="pdiv"></div>
+        <div class="pf">All 5 courses</div><div class="pf">Future updates included</div><div class="pf">30-day WhatsApp Q&amp;A</div><div class="pf">Exclusive prompt pack (₹299 value)</div><div class="pf">Priority booking for live sessions</div>
+        <button class="pbtn" onclick="showPage('contact')">Get Everything</button>
+      </div>
+      <div class="pc reveal">
+        <div class="plbl">1-on-1 Session</div>
+        <div class="ppr"><small>₹</small>600</div><div class="pper">per hour, via Google Meet</div>
+        <div class="pdiv"></div>
+        <div class="pf">Personalised to your needs</div><div class="pf">Any topic, any level</div><div class="pf">Session recording shared</div><div class="pf">Follow-up notes included</div>
+        <button class="pbtn" onclick="showPage('contact')">Book a Session</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt" id="about">
+    <div class="about-grid">
+      <div class="about-vis reveal">
+        <div class="ring ring1"></div><div class="ring ring2"></div>
+        <div class="about-center"><div class="ava">A</div><div class="ava-name">Arnav</div><div class="ava-role">Founder, AI Unlocked</div></div>
+      </div>
+      <div>
+        <div class="tag reveal">Your Instructor</div>
+        <h2 class="h2 reveal">I'm 13.<br/><em>I know AI.</em></h2>
+        <p class="about-bio reveal">I'm Arnav, a 7th grade student from Seoni who has been deep into AI tools for years. I've built AI-powered apps, run models on low-end hardware, and experimented with almost every tool out there.</p>
+        <p class="about-bio reveal">I know this better than most adults — and I know how to explain it simply so anyone can start.</p>
+        <div class="tags-row reveal"><span class="atag">ChatGPT</span><span class="atag">Claude</span><span class="atag">Prompt Engineering</span><span class="atag">React Dev</span><span class="atag">AI Research</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="sec">
+    <div class="reveal"><div class="tag">Reviews</div><h2 class="h2">What students <em>say.</em></h2></div>
+    <div class="tg">
+      <div class="tcard reveal"><div class="tstars">★★★★★</div><div class="ttext">"I had no idea how to use ChatGPT properly. After just the beginner course I'm using it every day for work emails and reports. Worth every rupee."</div><div class="tauth"><div class="tava">R</div><div class="tinfo"><strong>Rekha S.</strong><span>Business owner, Nagpur</span></div></div></div>
+      <div class="tcard reveal"><div class="tstars">★★★★★</div><div class="ttext">"The 1-on-1 session was incredible. Arnav explained everything clearly and helped me set up AI for my entire workflow in one hour."</div><div class="tauth"><div class="tava">M</div><div class="tinfo"><strong>Mohan T.</strong><span>Teacher, Bhopal</span></div></div></div>
+      <div class="tcard reveal"><div class="tstars">★★★★★</div><div class="ttext">"My daughter uses the student course. Her notes are so much better now and she understands chapters faster. Highly recommend."</div><div class="tauth"><div class="tava">P</div><div class="tinfo"><strong>Priya K.</strong><span>Parent, Indore</span></div></div></div>
+    </div>
+  </div>
+
+  <div class="sec sec-alt" id="faq">
+    <div class="reveal"><div class="tag">Questions</div><h2 class="h2">Got <em>doubts?</em></h2></div>
+    <div class="faq-wrap reveal">
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Do I need any technical knowledge to start?<span class="faq-arr">+</span></button><div class="faq-a">Zero. If you can use WhatsApp, you can do this. The beginner courses assume you've never touched AI before.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I receive the course after paying?<span class="faq-arr">+</span></button><div class="faq-a">You'll get a link via email and WhatsApp within a few hours of payment. Everything works on your phone or laptop.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">What if I'm not happy with the course?<span class="faq-arr">+</span></button><div class="faq-a">If you're not satisfied within 7 days of purchase, message me on WhatsApp for a full refund. No questions asked.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">How do I book a 1-on-1 session?<span class="faq-arr">+</span></button><div class="faq-a">Go to the Contact page, fill the form, and I'll message you within 24 hours to schedule a Google Meet that works for both of us.</div></div>
+      <div class="faq-item"><button class="faq-q" onclick="toggleFaq(this)">Are courses in Hindi or English?<span class="faq-arr">+</span></button><div class="faq-a">Currently English, but I can explain in Hindi during 1-on-1 sessions. Hindi video courses are coming soon.</div></div>
+    </div>
+  </div>
+
+  <div class="sec cta-sec">
+    <div class="tag reveal">Start Today</div>
+    <h2 class="cta-h reveal">The future is <em>AI.</em><br/>Get ahead now.</h2>
+    <p class="cta-sub reveal">Join the waitlist and get notified when new courses launch. Early access gets 20% off.</p>
+    <div class="email-row reveal">
+      <input type="email" class="email-inp" id="wl-email" placeholder="your@email.com"/>
+      <button class="email-btn" onclick="joinWaitlist()">Notify Me</button>
+    </div>
+  </div>
+
+  <footer>
+    <button class="f-logo" onclick="showPage('home')">AI<span>Unlocked</span></button>
+    <ul class="f-links"><li><button onclick="jump('#courses')">Courses</button></li><li><button onclick="jump('#pricing')">Pricing</button></li><li><button onclick="showPage('contact')">Contact</button></li></ul>
+    <div class="f-copy">© 2025 AI Unlocked</div>
+  </footer>
+</div>
+
+<!-- ═══════════ COURSE PAGE ═══════════ -->
+<div id="page-course" class="page">
+  <!-- injected by JS -->
+</div>
+
+<!-- ═══════════ CONTACT PAGE ═══════════ -->
+<div id="page-contact" class="page">
+  <div class="contact-hero">
+    <button class="back-btn" onclick="showPage('home')">Back to Home</button>
+    <div class="tag">Get in Touch</div>
+    <h1 class="h1">Let's <em>talk.</em></h1>
+    <p class="sub">Have a question about a course? Want to book a live session? Message me and I'll get back to you fast.</p>
+    <div class="contact-grid">
+      <div>
+        <div class="contact-methods">
+          <div class="cm"><div class="cm-icon">📱</div><div><div class="cm-lbl">WhatsApp</div><div class="cm-val">Fastest way to reach me. Use for course queries, payment questions, or session booking.</div></div></div>
+          <div class="cm"><div class="cm-icon">📧</div><div><div class="cm-lbl">Email / Contact Form</div><div class="cm-val">Fill the form on the right. I reply within 24 hours on weekdays.</div></div></div>
+          <div class="cm"><div class="cm-icon">🎥</div><div><div class="cm-lbl">Google Meet (1-on-1)</div><div class="cm-val">Book through the form. I'll send you a Meet link once confirmed.</div></div></div>
+        </div>
+        <div class="rt-card">
+          <div class="rt-title">Response Times</div>
+          <div class="rt-item"><span>WhatsApp</span><span class="rt-val">Within 2 hours</span></div>
+          <div class="rt-item"><span>Email / Form</span><span class="rt-val">Within 24 hours</span></div>
+          <div class="rt-item"><span>Session booking</span><span class="rt-val">Within 24 hours</span></div>
+          <div class="rt-item"><span>Refund requests</span><span class="rt-val">Within 48 hours</span></div>
+        </div>
+      </div>
+      <div class="form-card" id="form-card">
+        <div class="form-title">Send a Message</div>
+        <div class="form-sub">Fill this in and I'll reply within 24 hours.</div>
+        <div class="f-row">
+          <div class="fg"><label class="flbl">Your Name</label><input type="text" class="finp" id="f-name" placeholder="Ramesh Kumar"/></div>
+          <div class="fg"><label class="flbl">Email</label><input type="email" class="finp" id="f-email" placeholder="you@email.com"/></div>
+        </div>
+        <div class="fg"><label class="flbl">What's this about?</label>
+          <select class="finp" id="f-subject">
+            <option value="">Select a topic…</option>
+            <option>Course question</option>
+            <option>Book a 1-on-1 session</option>
+            <option>Bundle / pricing inquiry</option>
+            <option>Refund request</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="fg"><label class="flbl">Message</label><textarea class="finp" id="f-msg" placeholder="Tell me what you need help with…"></textarea></div>
+        <button class="f-submit" onclick="submitForm()">Send Message →</button>
+        <div id="f-success" class="f-success">
+          <div class="fs-icon">✅</div>
+          <div class="fs-title">Message received!</div>
+          <div class="fs-text">I'll get back to you within 24 hours.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <footer>
+    <button class="f-logo" onclick="showPage('home')">AI<span>Unlocked</span></button>
+    <ul class="f-links"><li><button onclick="showPage('home')">All Courses</button></li><li><button onclick="goHome('#pricing')">Pricing</button></li></ul>
+    <div class="f-copy">© 2025 AI Unlocked</div>
+  </footer>
+</div>
+
+<script>
+// ── COURSE DATA ──
+const COURSES = {
+  chatgpt:{
+    icon:'🚀',title:'ChatGPT for Complete Beginners',level:'Beginner',badge:'Bestseller',
+    tagline:'Go from confused to confident in one weekend.',
+    desc:'Takes you from never having used ChatGPT to using it every day. No technical knowledge needed — if you can use WhatsApp, you can do this.',
+    price:'₹199',orig:'₹349',duration:'3.5 hours',lessons:'24 lessons',updated:'Dec 2024',
+    includes:['24 video lessons (self-paced)','PDF cheat sheet + prompt templates','14-day WhatsApp Q&A support','Lifetime access + future updates','Certificate of completion'],
+    modules:[
+      {title:'What is AI and Why Does it Matter?',lessons:[{t:'What ChatGPT actually is',d:'5:20',free:true},{t:'How AI models think',d:'7:10',free:true},{t:'What AI is good (and bad) at',d:'6:45'},{t:'Setting up your free account',d:'4:30'}]},
+      {title:'Your First Real Conversations',lessons:[{t:'Writing your very first prompt',d:'8:15',free:true},{t:'Why bad prompts get bad answers',d:'6:30'},{t:'The role trick that changes everything',d:'9:00'},{t:'Getting AI to explain things simply',d:'7:45'}]},
+      {title:'Prompting Like a Pro',lessons:[{t:'The anatomy of a great prompt',d:'10:20'},{t:'Adding context and constraints',d:'8:55'},{t:'Iterating and refining outputs',d:'9:10'},{t:'Saving prompts that work',d:'5:40'}]},
+      {title:'Real-World Use Cases',lessons:[{t:'Summarising textbooks and articles',d:'8:00'},{t:'Writing emails and messages',d:'9:30'},{t:'Brainstorming and planning',d:'7:50'},{t:'Studying smarter with AI',d:'11:00'}]},
+      {title:'Staying Safe and Ethical',lessons:[{t:'What not to trust AI with',d:'6:10'},{t:'Fact-checking AI responses',d:'7:30'},{t:'Using AI honestly at school',d:'8:20'},{t:'Privacy — what to never share',d:'5:50'}]},
+      {title:"What's Next",lessons:[{t:'Other AI tools worth trying',d:'9:00'},{t:'Keeping up with AI updates',d:'5:00'},{t:'Building your own AI workflow',d:'10:30'},{t:'Course wrap-up + next steps',d:'4:00'}]},
+    ]
+  },
+  prompts:{
+    icon:'⚡',title:'Prompt Engineering That Works',level:'Intermediate',badge:'Intermediate',
+    tagline:'Get AI to do exactly what you want, every time.',
+    desc:'Stop getting generic, useless AI responses. Learn the exact frameworks to write prompts that produce professional, precise results for any task.',
+    price:'₹349',orig:'₹599',duration:'4 hours',lessons:'28 lessons',updated:'Jan 2025',
+    includes:['28 video lessons','50+ prompt templates','30-day WhatsApp Q&A','Lifetime access + updates','Prompt testing exercises'],
+    modules:[
+      {title:'Prompt Fundamentals',lessons:[{t:'Why most people get bad results',d:'6:00',free:true},{t:'The 5 elements of every great prompt',d:'9:20',free:true},{t:'How models process your instructions',d:'7:45'},{t:'Setting up your prompt workspace',d:'5:10'}]},
+      {title:'Persona & Role Prompting',lessons:[{t:'Making AI act like an expert',d:'8:30',free:true},{t:'Role + task + format = results',d:'10:00'},{t:'Examples across 10 professions',d:'12:00'},{t:'Practice: write 5 role prompts',d:'8:00'}]},
+      {title:'Advanced Techniques',lessons:[{t:'Chain of thought prompting',d:'9:45'},{t:'Few-shot prompting with examples',d:'11:20'},{t:'Temperature and tone control',d:'7:30'},{t:'Multi-step task decomposition',d:'10:00'}]},
+      {title:'Practical Applications',lessons:[{t:'Prompt patterns for writing',d:'9:00'},{t:'Data analysis prompts',d:'8:45'},{t:'Research and summarisation',d:'9:15'},{t:'Building a reusable prompt library',d:'10:00'}]},
+    ]
+  },
+  images:{
+    icon:'🖼️',title:'AI Image Generation Masterclass',level:'Beginner',badge:'Creative',
+    tagline:'Create professional images in seconds — no design skills needed.',
+    desc:'Master Midjourney, DALL-E, and Stable Diffusion to create stunning visuals for anything — social media, presentations, art projects, or just for fun.',
+    price:'₹299',orig:'₹499',duration:'3.5 hours',lessons:'22 lessons',updated:'Dec 2024',
+    includes:['22 video lessons','100+ image prompt templates','14-day WhatsApp Q&A','Lifetime access + updates','Style reference library'],
+    modules:[
+      {title:'Introduction to AI Art',lessons:[{t:'How AI image generation works',d:'6:30',free:true},{t:'Midjourney vs DALL-E vs Stable Diffusion',d:'8:00',free:true},{t:'Setting up each tool (free options included)',d:'7:00'},{t:'Your first generated image',d:'5:00'}]},
+      {title:'Prompt Writing for Images',lessons:[{t:'Text-to-image prompt structure',d:'9:00',free:true},{t:'Style, lighting, and composition keywords',d:'10:30'},{t:'Negative prompts to remove unwanted elements',d:'8:45'},{t:'Aspect ratios and resolution control',d:'6:00'}]},
+      {title:'Advanced Techniques',lessons:[{t:'Consistent characters across images',d:'9:30'},{t:'Blending styles and art references',d:'8:00'},{t:'Upscaling and post-processing',d:'7:30'},{t:'Batch generation workflow',d:'9:00'}]},
+    ]
+  },
+  business:{
+    icon:'💼',title:'AI Tools for Small Business',level:'Beginner–Intermediate',badge:'Business',
+    tagline:'Reclaim 5+ hours every week with AI automation.',
+    desc:'Built for small business owners and freelancers. Use AI to handle emails, create content, analyse data, and automate the tasks that eat up your week.',
+    price:'₹499',orig:'₹799',duration:'5 hours',lessons:'32 lessons',updated:'Jan 2025',
+    includes:['32 video lessons','Business prompt library','30-day WhatsApp Q&A','Lifetime access + updates','AI tool stack guide for Indian businesses'],
+    modules:[
+      {title:'AI for Business: The Basics',lessons:[{t:'Where AI saves the most time',d:'7:00',free:true},{t:'Best free tools for Indian SMBs',d:'9:30',free:true},{t:'Setting up a simple AI workflow',d:'8:00'},{t:'What not to automate yet',d:'6:30'}]},
+      {title:'Writing & Communication',lessons:[{t:'Professional emails in 30 seconds',d:'8:30',free:true},{t:'Responding to complaints effectively',d:'7:45'},{t:'Creating proposals and quotes',d:'10:00'},{t:'Social media captions and ads',d:'9:00'}]},
+      {title:'Content & Marketing',lessons:[{t:'Blog posts and SEO content with AI',d:'9:30'},{t:'WhatsApp broadcast messages',d:'7:00'},{t:'Product descriptions that convert',d:'8:45'},{t:'Creating a content calendar',d:'9:15'}]},
+      {title:'Operations & Analysis',lessons:[{t:'Summarising reports and documents',d:'8:00'},{t:'AI for basic data analysis',d:'10:30'},{t:'Creating SOPs and checklists',d:'9:00'},{t:'Customer support with AI',d:'8:30'}]},
+    ]
+  },
+  study:{
+    icon:'🎓',title:'AI Study Toolkit for Students',level:'Beginner',badge:'Popular',
+    tagline:'Study smarter, not harder — with AI as your personal tutor.',
+    desc:'Designed for CBSE and competitive exam students. Use AI tools ethically to understand concepts faster, create better notes, quiz yourself, and plan your study sessions.',
+    price:'₹249',orig:'₹399',duration:'3 hours',lessons:'20 lessons',updated:'Jan 2025',
+    includes:['20 video lessons','Study prompt templates for all subjects','14-day WhatsApp Q&A','Lifetime access + updates','Sample notes and study plan templates'],
+    modules:[
+      {title:'Getting Started',lessons:[{t:'Why students fail to use AI well',d:'5:30',free:true},{t:'Setting up the right tools (all free)',d:'6:00',free:true},{t:"The ethical line — what's cheating and what's not",d:'8:00'},{t:'Your first study session with AI',d:'7:30'}]},
+      {title:'Understanding Subjects Faster',lessons:[{t:'Making AI explain any concept simply',d:'9:00',free:true},{t:'Getting examples from your curriculum',d:'8:30'},{t:'Connecting topics across subjects',d:'7:45'},{t:'Science and Maths breakdowns',d:'10:00'}]},
+      {title:'Creating Better Notes',lessons:[{t:'Summarising chapters the right way',d:'8:00'},{t:'Creating mind maps with AI help',d:'9:30'},{t:'Building flashcards automatically',d:'7:00'},{t:'Revision sheets in 5 minutes',d:'8:45'}]},
+      {title:'Exam Preparation',lessons:[{t:'Generating practice questions',d:'8:00'},{t:'Mock tests and self-quizzing',d:'9:00'},{t:'Weak area identification',d:'7:30'},{t:'Full study plan for any exam',d:'11:00'}]},
+    ]
+  },
+};
+
+// ── ROUTING ──
+function showPage(name){
+  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
+  document.getElementById('page-'+name).classList.add('active');
+  window.scrollTo(0,0);
+  setTimeout(observeReveals,50);
+}
+
+function goHome(hash){
+  showPage('home');
+  setTimeout(()=>jump(hash),80);
+}
+
+function jump(hash){
+  const el=document.querySelector(hash);
+  if(el) el.scrollIntoView({behavior:'smooth',block:'start'});
+}
+
+function showCourse(slug){
+  const c=COURSES[slug];
+  if(!c) return;
+  document.getElementById('page-course').innerHTML=buildCoursePage(c,slug);
+  showPage('course');
+  setTimeout(()=>{
+    const first=document.querySelector('#page-course .mod');
+    if(first) first.classList.add('open');
+  },80);
+}
+
+function buildCoursePage(c,slug){
+  const mods=c.modules.map((m,mi)=>`
+    <div class="mod" onclick="toggleMod(this)">
+      <div class="mod-head">
+        <span class="mod-num">M${mi+1}</span>
+        <span class="mod-title">${m.title}</span>
+        <span class="mod-arr">▶</span>
+      </div>
+      <div class="mod-lessons">
+        ${m.lessons.map(l=>`
+          <div class="lesson${l.free?' lesson-free':''}">
+            <span class="l-icon">${l.free?'▶':'🔒'}</span>
+            <span class="l-title">${l.t}</span>
+            ${l.free?'<span class="l-badge">Free</span>':''}
+            <span class="l-dur">${l.d}</span>
+          </div>
+        `).join('')}
+      </div>
+    </div>
+  `).join('');
+
+  const inc=c.includes.map(i=>`<div class="pc-inc">${i}</div>`).join('');
+
+  return `
+    <div class="course-hero">
+      <button class="back-btn" onclick="showPage('home')">Back to Courses</button>
+      <div class="course-hero-grid">
+        <div>
+          <div class="cbadge-row"><span class="cbadge active">${c.badge}</span><span class="cbadge">${c.level}</span></div>
+          <h1 class="course-title">${c.icon} ${c.title}</h1>
+          <p class="course-desc">${c.desc}</p>
+          <div class="course-meta">
+            <div class="cmeta">⏱ ${c.duration} total</div>
+            <div class="cmeta">📚 ${c.lessons}</div>
+            <div class="cmeta">🔄 Updated ${c.updated}</div>
+            <div class="cmeta">📱 Mobile friendly</div>
+          </div>
+        </div>
+        <div class="purch-card">
+          <div class="pc-price">${c.price}</div>
+          <div class="pc-orig">${c.orig} <span style="font-size:11px;color:var(--teal);text-decoration:none">Save ${Math.round((1-parseInt(c.price.slice(1))/parseInt(c.orig.slice(1)))*100)}%</span></div>
+          <button class="pc-enrol" onclick="showPage('contact')">Enrol Now →</button>
+          <div class="pc-sec">🔒 Secure · 7-day refund guarantee</div>
+          <div class="pc-div"></div>
+          <div class="pc-inc-title">This course includes:</div>
+          ${inc}
+        </div>
+      </div>
+    </div>
+    <div class="curr">
+      <div class="tag">Course Content</div>
+      <h2 class="h2">What you'll <em>learn.</em></h2>
+      <div class="curr-grid">${mods}</div>
+    </div>
+    <div class="inst-sec">
+      <div class="tag">Instructor</div>
+      <h2 class="h2" style="margin-bottom:24px">Meet <em>Arnav.</em></h2>
+      <div class="inst-card">
+        <div class="inst-ava">A</div>
+        <div>
+          <div class="inst-name">Arnav</div>
+          <div class="inst-role">AI Educator · Developer · Class 7 Student</div>
+          <div class="inst-bio">I'm 13 years old and based in Seoni, MP. I've spent years deep in AI tools — building apps, running models, testing every tool I can find. I know this better than most adults, and I know how to explain it simply so anyone can get started. My courses are practical, up-to-date, and built around real results — not theory.</div>
+        </div>
+      </div>
+    </div>
+    <footer>
+      <button class="f-logo" onclick="showPage('home')">AI<span style="color:var(--gold)">Unlocked</span></button>
+      <ul class="f-links"><li><button onclick="showPage('home')">All Courses</button></li><li><button onclick="showPage('contact')">Contact</button></li></ul>
+      <div class="f-copy">© 2025 AI Unlocked</div>
+    </footer>
+  `;
+}
+
+// ── INTERACTIONS ──
+function toggleFaq(btn){
+  const item=btn.closest('.faq-item');
+  const open=item.classList.contains('open');
+  document.querySelectorAll('.faq-item').forEach(i=>i.classList.remove('open'));
+  if(!open) item.classList.add('open');
+}
+
+function toggleMod(el){ el.classList.toggle('open'); }
+
+function joinWaitlist(){
+  const inp=document.getElementById('wl-email');
+  if(inp&&inp.value.includes('@')){
+    inp.value='';
+    inp.placeholder="✓ You're on the list!";
+    inp.style.borderColor='var(--teal)';
+    setTimeout(()=>{inp.placeholder='your@email.com';inp.style.borderColor='';},4000);
+  }
+}
+
+async function submitForm(){
+  const name=document.getElementById('f-name')?.value.trim();
+  const email=document.getElementById('f-email')?.value.trim();
+  const subject=document.getElementById('f-subject')?.value;
+  const msg=document.getElementById('f-msg')?.value.trim();
+  if(!name||!email||!msg){alert('Please fill in your name, email, and message.');return;}
+
+  const btn=document.querySelector('.f-submit');
+  btn.textContent='Sending…';
+  btn.disabled=true;
+  btn.style.opacity='0.6';
+
+  try{
+    const res=await fetch('https://formspree.io/f/mwvrnbpv',{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify({name,email,subject:subject||'General enquiry',message:msg})
+    });
+    if(res.ok){
+      document.getElementById('form-card').innerHTML=`
+        <div style="text-align:center;padding:40px 24px;">
+          <div style="font-size:38px;margin-bottom:14px;">✅</div>
+          <div style="font-family:Syne,sans-serif;font-weight:700;font-size:18px;color:var(--teal);margin-bottom:10px;">Message received!</div>
+          <div style="font-size:12px;color:var(--dim);line-height:1.9;">Thanks ${name.split(' ')[0]}! I'll reply to <strong style="color:var(--teal)">${email}</strong> within 24 hours.</div>
+        </div>
+      `;
+    } else {
+      const data=await res.json();
+      btn.textContent='Send Message →';
+      btn.disabled=false;
+      btn.style.opacity='1';
+      alert(data?.errors?.[0]?.message||'Something went wrong. Please try again.');
+    }
+  } catch(e){
+    btn.textContent='Send Message →';
+    btn.disabled=false;
+    btn.style.opacity='1';
+    alert('Network error. Check your connection and try again.');
+  }
+}
+
+// ── SCROLL REVEAL ──
+function observeReveals(){
+  const els=document.querySelectorAll('.reveal:not(.vis)');
+  const obs=new IntersectionObserver(entries=>{
+    entries.forEach((e,i)=>{
+      if(e.isIntersecting){
+        setTimeout(()=>e.target.classList.add('vis'),i*65);
+        obs.unobserve(e.target);
+      }
+    });
+  },{threshold:0.1});
+  els.forEach(el=>obs.observe(el));
+}
+
+observeReveals();
+</script>
+</body>
+</html>
